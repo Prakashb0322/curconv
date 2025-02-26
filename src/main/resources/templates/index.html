@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Currency Converter</h1>
+    <form action="/convert" method="post">
+        <label>Amount:</label>
+        <input type="number" name="amount" step="0.01" required>
+
+        <label>From:</label>
+        <select name="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <label>To:</label>
+        <select name="toCurrency">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    <h2>Result:</h2>
+    <p th:if="${result}" th:text="'Converted Amount: ' + ${result} + ' ' + ${toCurrency}"></p>
+</div>
+
+</body>
+</html>
